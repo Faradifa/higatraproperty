@@ -28,7 +28,8 @@ if (!$service) {
 
 
 <!-- slider stylesheet -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 <!-- bootstrap core css -->
@@ -68,18 +69,18 @@ if (!$service) {
                     if (mysqli_num_rows($pricing_result) > 0) {
                         while ($row = mysqli_fetch_assoc($pricing_result)) {
                     ?>
-                            <div class="col-md-3">
-                                <div class="pricing-card">
-                                    <h4>
-                                        <div class="badge badge-secondary">
-                                            <?= $row['type']; ?>
-                                        </div>
-                                    </h4>
-                                    <div class="price">
-                                        <h2>Rp. <?= $row['harga']; ?></h2>
-                                    </div>
-                                    <ul class="features list-unstyled text-left">
-                                        <?php
+                    <div class="col-md-3">
+                        <div class="pricing-card">
+                            <h4>
+                                <div class="badge badge-secondary">
+                                    <?= $row['type']; ?>
+                                </div>
+                            </h4>
+                            <div class="price">
+                                <h2>Rp. <?= $row['harga']; ?></h2>
+                            </div>
+                            <ul class="features list-unstyled text-left">
+                                <?php
                                         $fasilitas = explode(',', $row['fasilitas']);
                                         foreach ($fasilitas as $f) {
                                             echo '<li class="d-flex align-items-center">
@@ -87,11 +88,12 @@ if (!$service) {
                                               </li>';
                                         }
                                         ?>
-                                    </ul>
+                            </ul>
 
-                                    <a href="https://wa.me/<?= $row['nomor_whatsapp']; ?>?text=<?= urlencode('Saya ingin pesan yang interior ' . $row['type']); ?>" class="btn btn-dark btn-block btn-custom">Pesan Sekarang</a>
-                                </div>
-                            </div>
+                            <a href="https://wa.me/<?= $row['nomor_whatsapp']; ?>?text=<?= urlencode('Saya ingin pesan yang interior ' . $row['type']); ?>"
+                                class="btn btn-dark btn-block btn-custom">Pesan Sekarang</a>
+                        </div>
+                    </div>
                     <?php
                         }
                     } else {

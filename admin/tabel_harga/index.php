@@ -1,7 +1,15 @@
 <?php
 include '../../kon/koneksi.php';
+session_start();
 
-// Assuming 'jasa bangun' has a specific service_id, let's say it's 1
+if (!isset($_SESSION['name']) || !isset($_SESSION['username'])) {
+    header("Location: ../../home-login.php");
+    exit();
+}
+
+$_SESSION['name'];
+$_SESSION['username'];
+
 $jasa_bangun_id = 1;
 
 $query = "SELECT us.* 

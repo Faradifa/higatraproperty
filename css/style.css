@@ -299,7 +299,16 @@ body {
   animation: slideshow 40s infinite;
   }
                                 */
+        /* .hero .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        text-align: center;
+      }
   
+    */
                                 .hero_area {
     height: 100vh;
       display: -webkit-box;
@@ -369,15 +378,6 @@ background-image: url(../images/sampul/6.png);
   /* background: rgba(0, 0, 0, 0.5); */
 }
 
-.hero .hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  text-align: center;
-}
-
 .hero .carousel-item {
   height: 100vh;
 }
@@ -386,7 +386,6 @@ background-image: url(../images/sampul/6.png);
   width: 100%;
   height: 90%;
   /* object-fit: cover; */
-  /* Agar gambar tidak terpotong */
 }
 .slider_section {
   position: relative;
@@ -1479,6 +1478,10 @@ a:focus {
 }
 
 .tiktok-float {
+  background-color: #000;
+}
+.tiktok-float :hover {
+  color: white;
   background-color: #000;
 }
 

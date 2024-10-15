@@ -67,10 +67,10 @@
                         </div>
 
                         <!-- Registration Link -->
-                        <div class="d-flex justify-content-center mt-3">
+                        <!-- <div class="d-flex justify-content-center mt-3">
                             <p>Don't have an account? <a href="register.php" class="text-decoration-none"
                                     style="color: inherit;">Register</a></p>
-                        </div>
+                        </div> -->
 
                         <!-- Google Login Button
             <div class="d-flex justify-content-center input-group mt-3">

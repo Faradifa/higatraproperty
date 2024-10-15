@@ -67,10 +67,6 @@
           <img src="images/sampul/7.png" alt="Background Image 3">
           <div class="hero-overlay"></div>
         </div>
-        <div class="carousel-item">
-          <img src="images/sampul/8.png" alt="Background Image 3">
-          <div class="hero-overlay"></div>
-        </div>
       </div>
     </div>
   </section>
@@ -127,7 +123,7 @@
         $query = "SELECT * FROM services";
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_assoc($result)): ?>
-          <div class="col-6 col-sm-4 col-md-2 mb-5 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+          <div class="col-6 col-sm-4 col-md-2 mb-5 img_layanan wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
             <a href="<?= $row['link']; ?>" class="service-link" target="_blank">
               <div class="service-icon">
                 <img src="images/services/<?= $row['image_url']; ?>" alt="<?= $row['description']; ?>">
@@ -498,7 +494,7 @@
                       <div class="testimonial-right">
 
                         <p class="deskripsi">"<?= $row['deskripsi']; ?>"</p>
-                        <a href="detail?id=<?= $row['id']; ?>" class="btn btn-dark mt-3 btn-detail" style="align-self: center;">Detail</a>
+                        <a href="detail.php?id=<?= $row['id']; ?>" class="btn btn-dark mt-3 btn-detail" style="align-self: center;">Detail</a>
                       </div>
                     </div>
                   </div>

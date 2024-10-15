@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['name']) || !isset($_SESSION['username'])) {
+    header("Location: ../../home-login.php");
+    exit();
+}
+
+$_SESSION['name'];
+$_SESSION['username'];
 
 // Jika form disubmit
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

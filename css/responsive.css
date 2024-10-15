@@ -47,6 +47,29 @@
     .carousel img {
         width: calc(100% / 2);
     }
+.hero {
+    height: auto;
+}
+
+.hero .carousel-item {
+    height: auto;
+}
+
+.hero .carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.hero .hero-overlay {
+    height: 100%;
+}
+
+.c_prev,
+.c_next {
+    display: none;
+}
+
 }
 
 @media (max-width: 768px) {
@@ -96,6 +119,43 @@
     .wrapper {
         width: 70%;
     }
+                                                                 .hero {
+                                                                     height: auto;
+                                                                 }
+                                
+                                                                 .hero .carousel-item {
+                                                                     height: auto;
+                                                                 }
+                                
+                                                                 .hero .carousel-item img {
+                                                                     width: 100%;
+                                                                     height: auto;
+                                                                     object-fit: cover;
+                                                                 }
+                                
+                                                                 .hero .hero-overlay {
+                                                                     height: 100%;
+                                                                 }
+                                
+                                                                 .c_prev,
+                                                                 .c_next {
+                                                                     display: none;
+                                                                 }
+                                                                                                                                        .row-legalitas .column img {
+                                                                                                                                            width: 100%;
+                                                                                                                                            /* Membuat gambar full width */
+                                                                                                                                            margin: 0;
+                                                                                                                                            /* Menghilangkan margin */
+                                                                                                                                            padding: 0;
+                                                                                                                                            /* Menghilangkan padding */
+                                                                                                                                        }
+                                                                    
+                                                                                                                                        .row-legalitas .column {
+                                                                                                                                            margin: 0;
+                                                                                                                                            /* Menghilangkan margin dari div column */
+                                                                                                                                            padding: 0;
+                                                                                                                                            /* Menghilangkan padding dari div column */
+                                                                                                                                        }
 }
 
 
@@ -138,13 +198,39 @@
         width: 100%;
         margin-bottom: 20px;
     }
+  .hero {
+      height: auto;
+  }
 
+  .hero .carousel-item {
+      height: auto;
+  }
 
+  .hero .carousel-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+  }
+
+  .hero .hero-overlay {
+      height: 100%;
+  }
+
+  .c_prev,
+  .c_next {
+      display: none;
+  }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+    .row .img_layanan {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+    }
+}
 
 @media (max-width: 420px) {
+
     .slider_section .detail-box h1 {
         letter-spacing: .3rem;
     }

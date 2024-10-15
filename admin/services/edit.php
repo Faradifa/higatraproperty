@@ -1,5 +1,14 @@
 <?php
 include '../../kon/koneksi.php';
+    session_start();
+
+    if (!isset($_SESSION['name']) || !isset($_SESSION['username'])) {
+        header("Location: ../../home-login.php");
+        exit();
+    }
+
+    $_SESSION['name'];
+    $_SESSION['username'];
 
 $id = $_GET['id'];
 $service = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM services WHERE id = $id"));

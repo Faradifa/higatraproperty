@@ -288,6 +288,16 @@
                 background-color: rgba(0, 0, 0, 0.8);
             }
 
+            @media (max-width: 990px) {
+                .modal-content {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    transition: opacity 0.5s ease-in-out;
+                }
+            }
+
             @media (max-width: 768px) {
                 .card {
                     flex-basis: calc(50% - 20px);
@@ -328,51 +338,56 @@
 
             /* Gaya awal untuk card */
             .card {
-                opacity: 0; /* Tidak terlihat pada awalnya */
-                transform: translateY(20px); /* Bergeser ke bawah */
-                transition: opacity 0.6s ease, transform 0.6s ease; /* Transisi saat muncul */
+                opacity: 0;
+                /* Tidak terlihat pada awalnya */
+                transform: translateY(20px);
+                /* Bergeser ke bawah */
+                transition: opacity 0.6s ease, transform 0.6s ease;
+                /* Transisi saat muncul */
             }
 
             /* Gaya untuk card saat terlihat */
             .card.show {
-                opacity: 1; /* Menjadi terlihat */
-                transform: translateY(0); /* Kembali ke posisi normal */
+                opacity: 1;
+                /* Menjadi terlihat */
+                transform: translateY(0);
+                /* Kembali ke posisi normal */
             }
         </style>
     </head>
 
     <body>
         <?php
-            include 'kon/koneksi.php';
-            $query = "SELECT g.id, t.nama AS nama_klien, g.gambar, g.deskripsi 
+        include 'kon/koneksi.php';
+        $query = "SELECT g.id, t.nama AS nama_klien, g.gambar, g.deskripsi 
                     FROM gambar_3d g
                     JOIN testimonials t ON g.id_klien = t.id
                     ORDER BY t.nama, g.id";
-            $result = mysqli_query($conn, $query);
+        $result = mysqli_query($conn, $query);
 
-            $grouped_images = [];
-            while ($row = mysqli_fetch_assoc($result)) {
-                $grouped_images[$row['nama_klien']][] = $row;
-            }
-            ?>
+        $grouped_images = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $grouped_images[$row['nama_klien']][] = $row;
+        }
+        ?>
 
-            <div class="container-3">
-                <h1 class="animate__animated animate__fadeIn" style="text-align: center;">Gambar 3D</h1>
-                <div class="gallery-wrapper">
-                    <?php foreach ($grouped_images as $client_name => $images): ?>
-                        <div class="client-section">
-                            <div class="card"> <!-- Pastikan card memiliki kelas 'card' -->
-                                <img alt="<?= htmlspecialchars($images[0]['deskripsi']); ?>"
-                                    src="images/gambar_3d/<?= htmlspecialchars($images[0]['gambar']); ?>"
-                                    data-client="<?= htmlspecialchars($client_name) ?>" />
-                                <div class="card-description">
-                                    <?= htmlspecialchars($images[0]['deskripsi']); ?>
-                                </div>
+        <div class="container-3">
+            <h1 class="animate__animated animate__fadeIn" style="text-align: center;">Gambar 3D</h1>
+            <div class="gallery-wrapper">
+                <?php foreach ($grouped_images as $client_name => $images): ?>
+                    <div class="client-section">
+                        <div class="card"> <!-- Pastikan card memiliki kelas 'card' -->
+                            <img alt="<?= htmlspecialchars($images[0]['deskripsi']); ?>"
+                                src="images/gambar_3d/<?= htmlspecialchars($images[0]['gambar']); ?>"
+                                data-client="<?= htmlspecialchars($client_name) ?>" />
+                            <div class="card-description">
+                                <?= htmlspecialchars($images[0]['deskripsi']); ?>
                             </div>
                         </div>
-                    <?php endforeach; ?>
-                </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
+        </div>
 
 
 
@@ -395,7 +410,9 @@
                             entry.target.classList.add('show'); // Tambahkan kelas show
                         }
                     });
-                }, { threshold: 0.1 }); // Mulai animasi ketika 10% elemen terlihat
+                }, {
+                    threshold: 0.1
+                }); // Mulai animasi ketika 10% elemen terlihat
 
                 // Menerapkan observer ke setiap card
                 cards.forEach(card => {
@@ -456,53 +473,53 @@
         <!-- end partner -->
         <footer>
             <div class="footer">
-            <div class="container">
-                <div class="row align-items-center row_footer">
-                <div class="col-md-3">
-                    <div class="map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.900066300759!2d113.84915147483633!3d-7.021031992980595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd9e70057ed749f%3A0x92004152aeafb8ed!2sHIGATRA%20PROPERTY!5e0!3m2!1sid!2sid!4v1726040814118!5m2!1sid!2sid"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                    </iframe>
+                <div class="container">
+                    <div class="row align-items-center row_footer">
+                        <div class="col-md-3">
+                            <div class="map">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.900066300759!2d113.84915147483633!3d-7.021031992980595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd9e70057ed749f%3A0x92004152aeafb8ed!2sHIGATRA%20PROPERTY!5e0!3m2!1sid!2sid!4v1726040814118!5m2!1sid!2sid"
+                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                                </iframe>
+                            </div>
+                        </div>
+                        <div class="col-md-3 isi_footer" style="margin-top: 2%; text-align: justify;">
+                            <h5>Address</h5>
+                            <p class="small"><i class="fas fa-map-marker-alt"></i> Jln. Jokotole No.7000, Dusun Toros, Babbalan,
+                                Kec.
+                                Batuan, Kabupaten Sumenep, Jawa Timur 69416</p>
+                        </div>
+                        <div class="col-md-3 isi_footer" style="margin-bottom: 3%; text-align: justify;">
+                            <h5>Work hours</h5>
+                            <p class="small"><i class="fas fa-clock"></i> Senin-Sabtu 08:00 - 16:00 WIB</p>
+                        </div>
+                        <div class="col-md-3 isi_footer" style="margin-bottom: 2%; text-align: justify;">
+                            <h5>Contact</h5>
+                            <p class="small"><i class="fas fa-envelope"></i> higatraapropertyy@gmail.com<br>
+                                <i class="fas fa-phone"></i> +62 877 - 2979 - 1118
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center social-icons">
+                            <a href="https://wa.me/6287849880465?text=Halo,%20saya%20tertarik%20dengan%20jasa%20Anda." target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://www.instagram.com/higatra_property" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/username" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@HigatraProperty" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@higatraproperty" target="_blank">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3 isi_footer" style="margin-top: 2%; text-align: justify;">
-                    <h5>Address</h5>
-                    <p class="small"><i class="fas fa-map-marker-alt"></i> Jln. Jokotole No.7000, Dusun Toros, Babbalan,
-                    Kec.
-                    Batuan, Kabupaten Sumenep, Jawa Timur 69416</p>
-                </div>
-                <div class="col-md-3 isi_footer" style="margin-bottom: 3%; text-align: justify;">
-                    <h5>Work hours</h5>
-                    <p class="small"><i class="fas fa-clock"></i> Senin-Sabtu 08:00 - 16:00 WIB</p>
-                </div>
-                <div class="col-md-3 isi_footer" style="margin-bottom: 2%; text-align: justify;">
-                    <h5>Contact</h5>
-                    <p class="small"><i class="fas fa-envelope"></i> higatraapropertyy@gmail.com<br>
-                    <i class="fas fa-phone"></i> +62 877 - 2979 - 1118
-                    </p>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col text-center social-icons">
-                    <a href="https://wa.me/6287849880465?text=Halo,%20saya%20tertarik%20dengan%20jasa%20Anda." target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="https://www.instagram.com/higatra_property" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com/username" target="_blank">
-                    <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@HigatraProperty" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@higatraproperty" target="_blank">
-                    <i class="fab fa-tiktok"></i>
-                    </a>
-                </div>
-                </div>
-            </div>
             </div>
         </footer>
         <?php include "layout/footer.html" ?>

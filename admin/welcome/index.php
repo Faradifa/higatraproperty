@@ -1,17 +1,20 @@
 <?php
 session_start();
-include_once('../../db_connection.php');
 
-// if(isset($_SESSION['name']) && isset($_SESSION['username'] )){
+// Periksa apakah sesi name dan username ada, jika tidak arahkan ke halaman login
+if (!isset($_SESSION['name']) || !isset($_SESSION['username'])) {
+  header("Location: ../../home-login.php");
+  exit();
+}
 
-// }
 $_SESSION['name'];
 $_SESSION['username'];
 ?>
 
 <?php include "../layout/header-admin.php"; ?>
+
 <style>
-.container {
+  .container {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -19,10 +22,9 @@ $_SESSION['username'];
     flex-direction: column;
     padding: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 
-}
-
-.container span {
+  .container span {
     background-color: gold;
     color: white;
     padding: 15px;
@@ -32,13 +34,13 @@ $_SESSION['username'];
     font-weight: 600;
     letter-spacing: 5px;
     text-transform: uppercase;
-}
+  }
 
-.container p {
+  .container p {
     margin: 20px;
-}
+  }
 
-.container .btn {
+  .container .btn {
     margin-top: -30px;
     width: 150px;
     background-color: gold;
@@ -47,39 +49,28 @@ $_SESSION['username'];
     letter-spacing: 5px;
     text-transform: uppercase;
     border-radius: 20px;
-}
+  }
 
-.container .btn:hover {
+  .container .btn:hover {
     margin-top: -30px;
     width: 200px;
     background-color: darkorange;
     font-weight: 500;
     transition: 1s;
     color: white;
-}
+  }
 </style>
 
-
-
 <div class="container">
-    <h3>Welcome, <span><?= $_SESSION['name']; ?></span></h3>
-    <p>Your Email id is :
-    <h6><?= $_SESSION['username']; ?></h6>
-    </p>
-    <a href="logout.php" class="btn">LOGOUT</a>
+  <h3>Welcome, <span><?= htmlspecialchars($_SESSION['name']); ?></span></h3>
+  <p>Your Email id is :
+  <h6><?= htmlspecialchars($_SESSION['username']); ?></h6>
+  </p>
+
+  <!-- Logout button menggunakan form POST untuk mencegah CSRF -->
+  <form method="POST" action="logout.php">
+    <button type="submit" class="btn">LOGOUT</button>
+  </form>
 </div>
 
-
-<!-- Registration Link -->
-<div class="d-flex justify-content-center mt-3">
-    <p>Don't have an account? <a href="register.php" class="text-decoration-none" style="color: inherit;">Register</a>
-    </p>
-</div>
-
-
-
-
-<!-- Bootstrap JavaScript Libraries -->
-
-<?php include "../layout/footer-admin.php";
-?>
+<?php include "../layout/footer-admin.php"; ?>

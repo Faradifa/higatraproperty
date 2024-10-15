@@ -1,5 +1,14 @@
 <?php
 include '../../kon/koneksi.php';
+session_start();
+
+if (!isset($_SESSION['name']) || !isset($_SESSION['username'])) {
+    header("Location: ../../home-login.php");
+    exit();
+}
+
+$_SESSION['name'];
+$_SESSION['username'];
 
 // Ambil data berdasarkan id yang dikirim melalui URL
 $id = $_GET['id'];

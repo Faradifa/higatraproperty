@@ -1,5 +1,15 @@
 <?php
 include '../../kon/koneksi.php';
+session_start();
+
+if (!isset($_SESSION['name']) || !isset($_SESSION['username'])) {
+    header("Location: ../../home-login.php");
+    exit();
+}
+
+$_SESSION['name'];
+$_SESSION['username'];
+
 $query = "SELECT gambar_3d.id, testimonials.nama, gambar_3d.gambar, gambar_3d.deskripsi 
           FROM gambar_3d 
           JOIN testimonials ON gambar_3d.id_klien = testimonials.id";

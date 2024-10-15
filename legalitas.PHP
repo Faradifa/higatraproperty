@@ -10,7 +10,8 @@
 
 
     <!-- slider stylesheet -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -208,12 +209,15 @@
         </div>
         <div class="content fade-in">
             <p style="text-align: justify; color:#fff">
-                <b style="color: #AA8D3F;">Higatra Property</b> adalah perusahaan kontruksi yang didirikan pada <b style="color: #AA8D3F;">tahun 2017</b> oleh <b style="color: #AA8D3F;">Eko
-                    Heri Supriyanto.</b> Berawal dari keresahan, Higatra hadir di Masyarakat dengan <b style="color: #AA8D3F;">harga bangun
+                <b style="color: #AA8D3F;">Higatra Property</b> adalah perusahaan kontruksi yang didirikan pada <b
+                    style="color: #AA8D3F;">tahun 2017</b> oleh <b style="color: #AA8D3F;">Eko
+                    Heri Supriyanto.</b> Berawal dari keresahan, Higatra hadir di Masyarakat dengan <b
+                    style="color: #AA8D3F;">harga bangun
                     menyesuaikan dengan Komitmen produk inovasi dengan Garansi resmi 1 Tahun.</b>
             </p>
             <p style="text-align: justify; color:#fff">
-                Mewujudkan Rumah Impian merupakan suatu kebanggan bagi kami dengan <b style="color: #AA8D3F;">mengatur tata letak, pencahayaan,
+                Mewujudkan Rumah Impian merupakan suatu kebanggan bagi kami dengan <b style="color: #AA8D3F;">mengatur
+                    tata letak, pencahayaan,
                     dan elemen desain dengan cermat, kami membantu Anda menciptakan ruang yang harmonis, menenangkan,
                     dan menginspirasi. </b>
             </p>
@@ -229,7 +233,8 @@
                 Visi
             </h2>
             <p class="text-justify">
-                Menjadi perusahaan konstruksi yang <b style="color: #AA8D3F;">mengedepankan kualitas dan jaminan produk terbaik di
+                Menjadi perusahaan konstruksi yang <b style="color: #AA8D3F;">mengedepankan kualitas dan jaminan produk
+                    terbaik di
                     Indonesia.</b> memberikan kontribusi positif bagi klien yang membutuhkan jasa bangun
                 <b style="color: #AA8D3F;">BERGARANSI</b> di Indonesia.
             </p>
@@ -241,7 +246,8 @@
                 Misi
             </h2>
             <p class="text-justify">
-                Berusaha mengembangkan <b style="color: #AA8D3F;">produk pelayanan terbaik dan memberikan inovasi kreatif pada jasa kontruksi
+                Berusaha mengembangkan <b style="color: #AA8D3F;">produk pelayanan terbaik dan memberikan inovasi
+                    kreatif pada jasa kontruksi
                     serta</b> memberikan kontribusi positif bagi masyarakat tentang jasa bangun dan renovasi
                 <b style="color: #AA8D3F;">BERGARANSI</b> di Indonesia.
             </p>
@@ -382,18 +388,21 @@
         /* Responsive layout - makes a two column-layout instead of four columns */
         @media screen and (max-width: 800px) {
             .column {
-                flex: 50%;
-                max-width: 50%;
+                /* flex: 50%;
+                max-width: 50%; */
+                flex: 100%;
+                max-width: 100%;
+
             }
         }
 
         /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-        @media screen and (max-width: 600px) {
+        /* @media screen and (max-width: 600px) {
             .column {
                 flex: 100%;
                 max-width: 100%;
             }
-        }
+        } */
 
         .fade-in-image {
             opacity: 0;
@@ -460,7 +469,7 @@
         }
         ?>
 
-        <div class="row" style="margin: 0; padding: 0;">
+        <div class="row row-legalitas" style="margin: 6; padding: 0;">
             <?php
             $totalPortrait = count($portraitImages);
             $totalLandscape = count($landscapeImages);
@@ -469,19 +478,22 @@
 
             while ($i < $totalPortrait || $j < $totalLandscape) {
                 if ($i < $totalPortrait) { ?>
-                    <div class="column" style="margin: 0; padding: 0;">
-                        <img src="<?php echo $basePath . $portraitImages[$i]; ?>" class="fade-in-image" style="width: 100%; margin: 0; padding: 0;">
+                    <div class="column" style="margin: 6; padding: 0;">
+                        <img src="<?php echo $basePath . $portraitImages[$i]; ?>" class="fade-in-image"
+                            style="width: 100%; margin: 6; padding: 0;">
                     </div>
                 <?php
                     $i++;
                 }
 
                 if ($j < $totalLandscape) { ?>
-                    <div class="column" style="margin: 0; padding: 0;">
-                        <img src="<?php echo $basePath . $landscapeImages[$j]; ?>" class="fade-in-image" style="width: 100%; margin: 0; padding: 0;">
+                    <div class="column" style="margin: 5; padding: 0;">
+                        <img src="<?php echo $basePath . $landscapeImages[$j]; ?>" class="fade-in-image"
+                            style="width: 100%; margin: 5; padding: 0;">
                         <?php
                         if ($j + 1 < $totalLandscape) { ?>
-                            <img src="<?php echo $basePath . $landscapeImages[$j + 1]; ?>" class="fade-in-image" style="width: 100%; margin: 0; padding: 0;">
+                            <img src="<?php echo $basePath . $landscapeImages[$j + 1]; ?>" class="fade-in-image"
+                                style="width: 100%; margin: 5; padding: 0;">
                         <?php
                             $j++;
                         } ?>
@@ -709,7 +721,8 @@
     <body>
         <div class="section-3">
             <div class="social-media-float">
-                <a href="https://wa.me/6287849880465?text=Halo,%20saya%20tertarik%20dengan%20jasa%20Anda." target="_blank" class="whatsapp-float">
+                <a href="https://wa.me/6287849880465?text=Halo,%20saya%20tertarik%20dengan%20jasa%20Anda."
+                    target="_blank" class="whatsapp-float">
                     <i class="fab fa-whatsapp"></i>
                 </a>
                 <a href="https://www.instagram.com/higatra_property" target="_blank" class="instagram-float">
@@ -742,7 +755,8 @@
                         </div>
                         <div class="col-md-3 isi_footer" style="margin-top: 2%; text-align: justify;">
                             <h5>Address</h5>
-                            <p class="small"><i class="fas fa-map-marker-alt"></i> Jln. Jokotole No.7000, Dusun Toros, Babbalan,
+                            <p class="small"><i class="fas fa-map-marker-alt"></i> Jln. Jokotole No.7000, Dusun Toros,
+                                Babbalan,
                                 Kec.
                                 Batuan, Kabupaten Sumenep, Jawa Timur 69416</p>
                         </div>
@@ -759,7 +773,8 @@
                     </div>
                     <div class="row">
                         <div class="col text-center social-icons">
-                            <a href="https://wa.me/6287849880465?text=Halo,%20saya%20tertarik%20dengan%20jasa%20Anda." target="_blank">
+                            <a href="https://wa.me/6287849880465?text=Halo,%20saya%20tertarik%20dengan%20jasa%20Anda."
+                                target="_blank">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                             <a href="https://www.instagram.com/higatra_property" target="_blank">

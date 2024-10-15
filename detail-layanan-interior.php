@@ -23,7 +23,7 @@ if (!$service) {
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Detail Layanan - <?= $service['description']; ?></title>
+<title>Detail Layanan Interior dan Eksterior></title>
 <link rel="icon" href="images/logo.png" type="image/x-icon">
 
 
